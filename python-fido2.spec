@@ -2,13 +2,14 @@
 # Conditional build:
 %bcond_with	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module [built from python3-fido2.spec]
 
 Summary:	Python 2 based FIDO 2.0 library
 Summary(pl.UTF-8):	Biblioteka FIDO 2.0 dla Pythona 2
 Name:		python-fido2
-Version:	0.9.1
-Release:	5
+# keep 0.9.x here for python2 support
+Version:	0.9.3
+Release:	1
 # Yubico code is BSD licensed; includes also:
 # pyudf (Apache 2.0)
 # public suffix list (MPL 2.0)
@@ -16,7 +17,7 @@ License:	BSD, Apache v2.0, MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://github.com/Yubico/python-fido2/releases
 Source0:	https://github.com/Yubico/python-fido2/releases/download/%{version}/fido2-%{version}.tar.gz
-# Source0-md5:	bf661f7949a057440e52aad6595a24fa
+# Source0-md5:	d8d2a123c7ccd87e6517fee251126f53
 Patch0:		%{name}-mock.patch
 URL:		https://developers.yubico.com/python-fido2/
 BuildRequires:	rpm-pythonprov
